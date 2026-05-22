@@ -1,0 +1,22 @@
+{
+    "search.followSymlinks": false,
+    "search.exclude": {
+        "pointer_to": true,
+        ".venv": true,
+        ".git": true,
+        "**/__pycache__": true
+    },
+    "files.watcherExclude": {
+        "pointer_to": true,
+        ".venv": true,
+        ".git": true,
+        "**/__pycache__": true
+    },
+    "python.analysis.exclude": [
+        "pointer_to",
+        ".venv",
+        ".git",
+        "**/__pycache__"
+    ],
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+}

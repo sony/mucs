@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+
+.venv/
+#.vscode/
+#slurm/
+
+pointer_to/
+#cache
+#data
+#logs
+
+*.wav
+*.flac
+*.pt
+*.pdf
+*.png

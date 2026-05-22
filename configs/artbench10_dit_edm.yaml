@@ -1,0 +1,92 @@
+seed: 44                # must be positive
+checkpoint: null        # if we want to load
+limit_batches: null
+
+slurm:
+  jobname: null         # training script automatically updates this
+  logpath: null         # training script automatically updates this
+  num_nodes: 1          # training script automatically updates this
+  num_gpus: 1           # training script automatically updates this
+  precision: "32"       # bf16-true does not seem to work well
+
+path:
+  cache: "pointer_to/cache/"
+  data: "pointer_to/data/artbench10/"
+  logs: "(same as slurm.logpath)"  # training script automatically updates this
+
+data:
+  name: "artbench10"
+  path: "(same as path.data)"  # training script automatically updates this
+  partition_train: "orig-train"
+  partition_valid: "orig-test"
+  remove_selected_datapoints: null
+  subsample_train: null
+  num_workers: 8
+
+augmentation:
+  prob: 0.12
+  types:
+    xflip: 1e8          #1e8
+    yflip: 0            #1
+    scale: 1            #1
+    aniso: 1            #1
+    rotate_int: 0       #0
+    rotate_frac: 1      #1
+    translate_int: 0    #0
+    translate_frac: 1   #1
+    brightness: 0       #0
+    contrast: 0         #0
+    lumaflip: 0         #0
+    hue: 0              #0
+    saturation: 0       #0
+
+model:
+  name: "dit_edm"
+  arch:
+    unconditional: False
+    frontend:
+      channels: [16,16]
+      resample: [1,2]
+      kern: 5
+      last_factor: 4
+    dit:
+      patch_size: [2,2]
+      extra_tokens: 32
+      num_blocks: 12        # 12   12   24    28
+      num_channels: 768     # 384  768  1024  1152
+      num_heads: 12         # 6    12   16    16
+      mlp_ratio: 4
+      p_drop: 0.1
+      num_channels_cond: 256
+  loss:
+    p_drop_cond: 0.1
+    sigma_P: [-1.2,1.2]
+    sigma_data: 0.5
+  sampler:
+    num_steps: 32
+    sigma_min: 0.002
+    sigma_max: 80
+    cfg: 2.0
+    rho: 7
+    S_churn: 0
+    S_min: 0
+    S_max: 1e12
+    S_noise: 1.003
+
+training:
+  ema: 0.999              # set to null for no EMA
+  batch_size: 128         # per GPU
+  num_epochs: 250
+  num_epochs_no_improv: 20
+  num_updates_train: 1000
+  num_updates_valid: null
+  optim:
+    name: "adamw"
+    lr: 2e-4
+    wd: 0.01
+    sched: "warmctt_10"
+    min_lr: null          # only used when sched is plateau_xxx
+  monitor:
+    quantity: "l_main"
+    mode: "min"
+  checkpoint_mult_epoch: null

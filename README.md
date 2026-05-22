@@ -1,6 +1,6 @@
 # Training Data Attribution in Diffusion Models via Mirrored Unlearning and Noise-Consistent Skew
 
-_This is the repository for the MUCS paper. Although it includes the code we used to perform the experiments reported in the paper, this repository is intended just for illustrative purposes. Please do not expect direct execution to work on the first try._
+_This is the repository for the MUCS paper. Although it includes the code we used to perform the experiments reported in the paper, this repository is intended just for illustrative purposes._
 
 ### Abstract
 

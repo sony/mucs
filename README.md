@@ -12,8 +12,9 @@ Joan Serrà, Dipam Goswami, Fabio Morreale, Wei-Hsiang Liao, & Yuki Mitsufuji.
 
 ### Reference
 
-J. Serrà, D. Goswami, F. Morreale, W.-H. Liao, & Y. Mitsufuji (2026). Training Data Attribution in Diffusion Models via Mirrored Unlearning and Noise-Consistent Skew. [ArXiv: 2605.17938](https://arxiv.org/abs/2605.17938).
+J. Serrà, D. Goswami, F. Morreale, W.-H. Liao, & Y. Mitsufuji (2026). **Training Data Attribution in Diffusion Models via Mirrored Unlearning and Noise-Consistent Skew**. ArXiv: 2605.17938.
 
+[[`arxiv`](https://arxiv.org/abs/2605.17938)]
 
 ## Preparation
 

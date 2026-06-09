@@ -73,7 +73,7 @@ where:
 
 To run the eval script:
 ```bash
-python eval.py --jobs=cifar10_dit_edm_ds1,cifar10_dit_edm_ds2 --methods=random,mucs
+python eval.py --jobs=cifar10_dit_edm_s1_xxx,cifar10_dit_edm_s2_xxx --methods=random,mucs
 ```
 
 We use slurm to run our scripts, so expect to see some slurm boilerplate code.
